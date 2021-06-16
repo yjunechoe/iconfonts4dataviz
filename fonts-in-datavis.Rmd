@@ -219,6 +219,7 @@ bar_labels_df <- tribble(
   "instagram", 0.2, "#C72584",
   "facebook", 0.4, "#0071FD"
 )
+
 bar_plot <- ggplot(bar_labels_df, aes(platform, familiarity)) +
   geom_col(
     aes(fill = color),
@@ -235,6 +236,8 @@ bar_plot <- ggplot(bar_labels_df, aes(platform, familiarity)) +
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
   )
+
+bar_plot
 ```
 
 
