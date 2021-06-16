@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+
+slides > slide > hgroup + article {
+  margin-top: 10px !important;
+}
+
+p, li, h1, h2, h3 {
+  color: black;
+  font-family: Open Sans;
+}
+h1, h2, h3 {
+  text-decoration: underline;
+}
+
+i {
+  padding: 1px;
+}
+
+.build {
+  color: black;
+}
+.my-input {
+  background-color: #ffff70;
+  padding: 0px 5px 1px 5px;
+  border-radius: 10px;
+}
+
+/* code block styles */
+pre {
+  font-size: 16px
+  padding-left: 30px;
+}
+pre .shiny-code {
+  font-size: 18px;
+}
+
+/* override xaringan panelset */
+ul.panel-tabs > li:before {
+  content: "";
+}
+section.panel {
+    background-color: inherit;
+}

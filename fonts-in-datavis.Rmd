@@ -1,9 +1,10 @@
 ---
 title: "Icon fonts in data viz"
-author: "June Choe<br>@yjunechoe"
-date: June 15, 2021
+author: "June Choe (@yjunechoe)"
+date: "2021-06-16 RLadies lightning talk"
 output:
   ioslides_presentation: 
+    css: "style.css"
     widescreen: true
     transition: faster
     highlight: haddock
@@ -33,46 +34,10 @@ library(ggtext)
 library(waffle)
 ```
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
-
-p, li, h1, h2, h3 {
-  color: black;
-  font-family: Open Sans;
-}
-h1, h2, h3 {
-  text-decoration: underline;
-}
-.build {
-  color: black;
-}
-.my-input {
-  background-color: #ffff70;
-  padding: 0px 5px 1px 5px;
-  border-radius: 10px;
-}
-
-pre {
-  font-size: 16px
-  padding-left: 30px;
-  margin-top: -30px;
-}
-pre .shiny-code {
-  font-size: 18px;
-  margin-top: 0px
-}
-
-/* override xaringan panelset */
-ul.panel-tabs > li:before {
-  content: "";
-}
-section.panel {
-    background-color: inherit;
-}
-</style>
+<link rel="stylesheet" href="all.css">
+<script src="js/d3.min.js"></script>
+<script defer src="js/iconprint.js"></script>
 
 ## What is an icon _font_?
 
@@ -212,7 +177,7 @@ theme_update(
 
 ## Bar plot
 
-```{r}
+```{r bar, out.width="900px"}
 bar_labels_df <- tribble(
   ~ platform, ~ familiarity, ~ color,
   "twitter", 0.8, "#00A9E9",
@@ -247,7 +212,7 @@ bar_plot
 geom_text(..., family = "Font Awesome 5 Brands")
 ```
 
-```{r, bar-labels}
+```{r bar-labels}
 bar_labels_plot <- bar_plot +
   geom_text(                                          #< Set `platform` variable
     aes(label = platform, color = color),             #< as the label and render
@@ -272,13 +237,13 @@ bar_labels_plot +
 
 ## Axis labels (colored)
 
-```{r, eval = FALSE, echo = TRUE}
+```{r eval = FALSE, echo = TRUE}
 scale_x_discrete(labels = function(x) {glue("<span style='color: {brand_palette[x]}'>{x}</span>")}) +
   theme(axis.text.x = element_markdown(family = "Font Awesome 5 Brands"))
 ```
 
 
-```{r}
+```{r axis-labels}
 brand_palette <- bar_labels_df %>% 
   pull(color, platform)
 
@@ -297,7 +262,7 @@ bar_labels_plot +
 labs(title = ...) + theme(plot.title = ggtext::element_markdown())
 ```
 
-```{r}
+```{r in-line}
 bar_labels_plot +
   labs(title = "I'm more familiar with <span style='font-family: \"Font Awesome 5 Brands\"; color:#00A9E9; font-size: 18px;'>twitter</span> than <span style='font-family: \"Font Awesome 5 Brands\"; color:#C72584; font-size: 20px;'>instagram</span>") +
   scale_x_discrete(labels = function(x) {glue("<span style='color: {brand_palette[x]}'>{x}</span>")}) +
@@ -317,7 +282,7 @@ junebug::font_hoist("Font Awesome 5 Free")
 
 ## Weather forecast
 
-```{r}
+```{r weather, out.width="900px"}
 forecast <- tribble(
   ~day, ~temp, ~weather,
   "Mon", 23.3, "cloud-showers-heavy",
@@ -350,7 +315,7 @@ ggplot(forecast) +
 
 ## Waffle chart
 
-```{r}
+```{r waffle, out.width="900px"}
 crossing(
   col = 1:8,
   row = 1:4
@@ -372,7 +337,7 @@ crossing(
 
 ## Infographic
 
-```{r}
+```{r infographic, out.width="900px"}
 set.seed(2021)
 
 ggplot(NULL) +
@@ -406,9 +371,9 @@ ggplot(NULL) +
 
 ## ... and much more!
 
-For a fuller experience with icon fonts, check out:
-
 <br>
+
+For a fuller experience with icon fonts, check out:
 
 ```{r, eval = FALSE, echo = TRUE}
 library(ggfx)
