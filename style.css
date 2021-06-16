@@ -17,6 +17,9 @@ i {
   padding: 1px;
 }
 
+.sc {
+  font-variant: small-caps;
+}
 .build {
   color: black;
 }
@@ -40,5 +43,5 @@ ul.panel-tabs > li:before {
   content: "";
 }
 section.panel {
-    background-color: inherit;
+  background-color: inherit;
 }

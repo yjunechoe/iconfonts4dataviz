@@ -239,7 +239,7 @@ bar_labels_plot +
 
 ```{r eval = FALSE, echo = TRUE}
 scale_x_discrete(labels = function(x) {glue("<span style='color: {brand_palette[x]}'>{x}</span>")}) +
-  theme(axis.text.x = element_markdown(family = "Font Awesome 5 Brands"))
+  theme(axis.text.x = ggtext::element_markdown(family = "Font Awesome 5 Brands"))
 ```
 
 
