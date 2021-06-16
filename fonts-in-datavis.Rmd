@@ -306,6 +306,11 @@ bar_labels_plot +
 
 # Unlocking new charts!
 
+```{r}
+# devtools::install_github("yjunechoe/junebug")
+junebug::font_hoist("Font Awesome 5 Free") 
+```
+
 
 ## Weather forecast
 
@@ -366,7 +371,6 @@ crossing(
 
 ```{r}
 set.seed(2021)
-junebug::font_hoist("Font Awesome 5 Free") # devtools::install_github("yjunechoe/junebug")
 
 ggplot(NULL) +
   geom_rect(
@@ -414,6 +418,8 @@ library(string2path) # devtools::install_github("yutannihilation/string2path")
 library(shadowtext)
 ```
 
-For installing and debugging fonts in R:
+<br>
+
+For installing and debugging custom fonts in R:
 
 - Rstudio blog posts ([1](https://www.tidyverse.org/blog/2021/02/modern-text-features/), [2](https://www.tidyverse.org/blog/2020/05/updates-to-ragg-and-systemfonts/)), [twitter thread](https://twitter.com/yjunechoe/status/1382747651075100676)
