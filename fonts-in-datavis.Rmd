@@ -230,7 +230,7 @@ bar_labels_plot
 theme(axis.text.x = element_text(family = "Font Awesome 5 Brands"))
 ```
 
-```{r}
+```{r axis-labels}
 bar_labels_plot +
   theme(axis.text.x = element_text(family = "Font Awesome 5 Brands"))
 ```
@@ -243,7 +243,7 @@ scale_x_discrete(labels = function(x) {glue("<span style='color: {brand_palette[
 ```
 
 
-```{r axis-labels}
+```{r axis-labels-colored}
 brand_palette <- bar_labels_df %>% 
   pull(color, platform)
 
